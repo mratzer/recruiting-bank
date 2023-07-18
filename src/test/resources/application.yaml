@@ -1,0 +1,7 @@
+spring:
+  jpa:
+    # I've no idea why I have to duplicate this setting from production's application.yaml
+    open-in-view: false
+
+  liquibase:
+    contexts: test

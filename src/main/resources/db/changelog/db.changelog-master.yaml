@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - objectQuotingStrategy: QUOTE_ALL_OBJECTS
+
+  - include:
+      file: db.changelog-100.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: db.changelog-200.yaml
+      relativeToChangelogFile: true

@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - objectQuotingStrategy: QUOTE_ALL_OBJECTS
+  - changeSet:
+      id: 201
+      author: bearingpoint
+      contextFilter: "!test"
+      changes:
+        - loadData:
+            tableName: user
+            file: users.csv
+            usePreparedStatements: true
+            relativeToChangelogFile: true
