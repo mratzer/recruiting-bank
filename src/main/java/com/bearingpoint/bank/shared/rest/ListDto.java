@@ -1,4 +1,4 @@
-package com.bearingpoint.bank.users;
+package com.bearingpoint.bank.shared.rest;
 
 import java.util.List;
 

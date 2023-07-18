@@ -1,4 +1,4 @@
-package com.bearingpoint.bank.users;
+package com.bearingpoint.bank.users.model;
 
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -19,18 +19,10 @@ public class UserService {
     }
 
     @Transactional
-    public List<UserDto> findAllUsers() {
+    public List<User> findAllUsers() {
         logger.info("Find all users");
 
-        return userRepository.findAll()
-                .stream()
-                .map(e -> {
-                    return new UserDto(
-                            e.getId(),
-                            e.getName()
-                    );
-                })
-                .toList();
+        return userRepository.findAllUsers();
     }
 
 }

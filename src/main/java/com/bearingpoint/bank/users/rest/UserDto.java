@@ -1,4 +1,4 @@
-package com.bearingpoint.bank.users;
+package com.bearingpoint.bank.users.rest;
 
 import java.util.UUID;
 

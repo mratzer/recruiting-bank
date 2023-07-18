@@ -1,4 +1,4 @@
-package com.bearingpoint.bank.users;
+package com.bearingpoint.bank.users.persistence;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

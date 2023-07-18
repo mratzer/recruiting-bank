@@ -1,7 +1,7 @@
-package com.bearingpoint.bank.users;
+package com.bearingpoint.bank.users.rest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.bearingpoint.bank.shared.rest.ListDto;
+import com.bearingpoint.bank.users.model.UserService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +14,6 @@ import java.util.List;
 @RequestMapping("/api/v1/users")
 public class UserController {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -26,7 +24,10 @@ public class UserController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<ListDto<UserDto>> getUsers() {
-        List<UserDto> allUsers = userService.findAllUsers();
+        List<UserDto> allUsers = userService.findAllUsers()
+                .stream()
+                .map(e -> new UserDto(e.id(), e.name()))
+                .toList();
 
         return ResponseEntity.ok()
                 .body(new ListDto<>(allUsers));
